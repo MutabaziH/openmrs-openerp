@@ -1,7 +1,55 @@
 <?xml version="1.0" encoding="utf-8"?>
 <openerp> 
 <data>
+     <record model="ir.ui.view" id="view_order_category_search">
+        <field name="name">order.category.search</field>
+        <field name="model">sale.order.category</field>
+        <field name="arch" type="xml">
+            <search string="orders Categories">
+                <field name="name" string="Category"/>
+                <field name="description" string="Descritpion"/>
+            </search>
+        </field>
+    </record>
 
+    <!-- order Category Form View -->
+        <record model="ir.ui.view" id="view_order_category_form">
+            <field name="name">order.category.form</field>
+            <field name="model">sale.order.category</field>
+            <field name="arch" type="xml">
+                <form string="Category of orders" version="7.0">
+                    <group>
+                        <field name="name"/>
+                        <field name="description"/>
+                    </group>
+                </form>
+            </field>
+        </record>
+
+        <!-- order Category Tree View -->
+        <record model="ir.ui.view" id="view_order_category_tree">
+            <field name="name">order.category.tree</field>
+            <field name="model">sale.order.category</field>
+            <field name="field_parent"></field>
+            <field name="arch" type="xml">
+                <tree string="Category of Medical Orders">
+                    <field name="name"/>
+                    <field name="description"/>
+                </tree>
+            </field>
+        </record>
+
+        <!-- order Category Action -->
+
+    <record model="ir.actions.act_window" id="action_order_category">
+        <field name="name">Categories</field>
+        <field name="res_model">sale.order.category</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+        <field name="search_view_id" ref="view_order_category_search"/>
+    </record>
+      
+     
     <record model="ir.ui.view" id="connect_config_form_view">
         <field name="name">openmrs.connect.form</field>
         <field name="model">openmrs.connect</field>
@@ -32,7 +80,7 @@
         </field>
       </record>
 
-  <record model="ir.actions.act_window" id="action_connect_config_view">
+     <record model="ir.actions.act_window" id="action_connect_config_view">
             <field name="name">Config Form</field>
             <field name="type">ir.actions.act_window</field>
             <field name="res_model">openmrs.connect</field>
@@ -40,13 +88,14 @@
             <field name="view_mode">tree,form</field>
        </record>
 
-
+    
 <menuitem name="Configuration" icon="terp-project" id="connect_config" action="action_connect_config_view" parent="patient_menu" groups="base.group_system" sequence="10"/>
 
 <menuitem name="Openmrs Config" icon="terp-project" id="openmrs_connect_config" action="action_connect_config_view" parent="connect_config" groups="base.group_system" sequence="10"/>
-<menuitem name="Prescriptions Config" icon="terp-project" id="prescr_connect_config" action="action_connect_config_view" parent="connect_config" groups="base.group_system" sequence="10"/>
-<menuitem name="LabTest Config" icon="terp-project" id="labtest_connect_config" action="action_connect_config_view" parent="connect_config" groups="base.group_system" sequence="10"/>
-<menuitem name="LabTest Config" icon="terp-project" id="labtest_connect_config" action="action_connect_config_view" parent="connect_config" groups="base.group_system" sequence="10"/>
 
+
+
+<menuitem name="Medical Order Categories" parent="connect_config" id="menu_order_category" action="action_order_category" sequence="1" />
+   
 </data>
 </openerp>

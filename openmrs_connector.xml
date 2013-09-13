@@ -87,7 +87,22 @@
                         </group>
                     </page>
 
-                      <!--page it here -->
+                    <page string="Other Info">
+                        <group colspan="6" >
+                            <field name="father" context="{'form_view_ref' : 'view_ref_custom.res_partner_form_view_ref_custom', 'tree_view_ref' : 'view_ref_custom.res_partner_tree_view_ref_custom'}"/>
+                            <field name="mother" context="{'form_view_ref' : 'view_ref_custom.res_partner_form_view_ref_custom', 'tree_view_ref' : 'view_ref_custom.res_partner_tree_view_ref_custom'}"/>
+                            <field name="spouse" context="{'form_view_ref' : 'view_ref_custom.res_partner_form_view_ref_custom', 'tree_view_ref' : 'view_ref_custom.res_partner_tree_view_ref_custom'}"/>
+                         
+                            <group colspan="6" string="Spouse's Info">
+                                <field name="spouse_address"/>
+                                <field name="spouse_empl"/>
+                                <field name="spouse_empl_address"/>
+                                <field name="spouse_empl_phone_no"/>
+                            
+                            </group>
+                        </group>
+                    </page>
+
 
                     <page string="Connection">
                         <group colspan="6" >
@@ -133,8 +148,9 @@
 <menuitem name="Patients" icon="terp-project" id="patient_enrolment_menu" parent="patient_menu" action="action_list_of_patient"  sequence="1"/>
 
 <menuitem name="Patients" parent="patient_enrolment_menu" id="patient_listing" action="action_list_of_patient" sequence="1"/> 
-<menuitem name="Visits" parent="patient_enrolment_menu" id="patient_visit" action="action_list_of_patient" sequence="2"/>   
-<menuitem name="Billing and Payments" parent="patient_menu" id="patient_billing" action="action_list_of_patient" sequence="2"/> 
+<menuitem name="Visits" parent="patient_enrolment_menu" id="patient_visit" action="action_list_of_patient" sequence="2"/> 
+
+<menuitem name="Billing and Invoicing" parent="patient_menu" id="patient_billing" action="action_list_of_patient" sequence="3"/> 
 <menuitem name="All Bills" parent="patient_billing" id="patient__all_bills" action="action_list_of_patient" sequence="1"/> 
 <menuitem name="Lab Tests" parent="patient_billing" id="patient__Lab_test_bills" action="action_list_of_patient" sequence="2"/>
 <menuitem name="Prescriptions" parent="patient_billing" id="patient__prescription_bills" action="action_list_of_patient" sequence="3"/> 

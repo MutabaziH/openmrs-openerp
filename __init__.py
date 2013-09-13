@@ -1,1 +1,4 @@
-import openmrsconnector
+import custom_partner
+import custom_invoice
+import custom_order
+#import custom_delivery_products
